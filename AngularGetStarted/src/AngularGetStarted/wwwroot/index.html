@@ -19,45 +19,6 @@
         <input type="submit" value="Search" />
     </form>
 
-    <div ng-show="user.name">
-        <h2>Name: {{user.name}}</h2>
-        <!-- There is no longer a gravarat in github repository so i'm using the regular image -->
-        <img ng-src="{{user.avatar_url}}" title="{{user.name}}" />
-    </div>
-
-
-
-    <!--<div ng-repeat="repo in repos">
-        <div>Id: {{repo.id}}</div>
-        <div>Name: {{repo.name}}</div>
-    </div>-->
-    Order:
-    <!-- this will add a repoSortOrder field on
-        $scope wich will be used in the orderBy statement below -->
-    <select ng-model="repoSortOrder">
-        <option value="+id">Id</option>
-        <option value="+name">Name</option>
-        <option value="-stargazers_count">States</option>
-        <option value="+language">Language</option>
-    </select>
-
-    <table ng-hide="!repos">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Stars</th>
-                <th>Language</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr ng-repeat="repo in repos | orderBy:repoSortOrder">
-                <td>{{repo.id}}</td>
-                <td>{{repo.name}}</td>
-                <td>{{repo.stargazers_count | number}}</td>
-                <td>{{repo.language}}</td>
-            </tr>
-        </tbody>
-    </table>
+    <div ng-include="'User/userDetails.html'" ng-show="user"></div>
 </body>
 </html>
