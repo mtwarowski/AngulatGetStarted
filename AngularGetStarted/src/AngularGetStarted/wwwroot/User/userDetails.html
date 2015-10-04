@@ -1,11 +1,9 @@
 ﻿<div>
     <h2>Name: {{user.name}}</h2>
+    {{error}}
     <!-- There is no longer a gravarat in github repository so i'm using the regular image -->
     <img ng-src="{{user.avatar_url}}" title="{{user.name}}" />
 </div>
-
-
-
 <!--<div ng-repeat="repo in repos">
     <div>Id: {{repo.id}}</div>
     <div>Name: {{repo.name}}</div>
@@ -38,3 +36,4 @@
         </tr>
     </tbody>
 </table>
+<a href="#/main">Back to Search</a>

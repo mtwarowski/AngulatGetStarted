@@ -4,22 +4,14 @@
     <meta charset="utf-8" />
     <title></title>
     <script src="lib/angular/angular.min.js"></script>
+    <script src="lib/angular-route/angular-route.js"></script>
     <script src="scripts/app.js"></script>
+    <script src="scripts/usercontroller.js"></script>
+    <script src="scripts/maincontroller.js"></script>
     <script src="scripts/github.js"></script>
 </head>
-<body ng-controller="mainController">
-    <h1>{{message}}</h1>
-    <div>{{error}}</div>
-
-    <div ng-show="countdown">Auto Search in: {{countdown}}</div>
-    <form name="searchUser" ng-submit="search(userName)">
-        <input type="search" required placeholder="User name to find" ng-model="userName" />
-        <!-- So dirty like dirty Harry... Don't use a ng-click in form -->
-        <!--<input type="submit" value="Search" ng-click="search(userName)" />-->
-        <!-- use submit insted -->
-        <input type="submit" value="Search" />
-    </form>
-
-    <div ng-include="'User/userDetails.html'" ng-show="user" id="userDetails"></div>
+<body>
+    <h1>Github Viewer</h1>
+    <div ng-view></div>
 </body>
 </html>
