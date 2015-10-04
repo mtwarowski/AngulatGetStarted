@@ -10,7 +10,7 @@
     <h1>{{message}}</h1>
     <div>{{error}}</div>
 
-    <!--<p>Selected User is: {{userName}}</p>-->
+    <div ng-show="countdown">Auto Search in: {{countdown}}</div>
     <form name="searchUser" ng-submit="search(userName)">
         <input type="search" required placeholder="User name to find" ng-model="userName" />
         <!-- So dirty like dirty Harry... Don't use a ng-click in form -->
