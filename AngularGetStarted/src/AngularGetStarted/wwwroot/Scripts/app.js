@@ -20,7 +20,7 @@
 
 (function () {
     var app = angular.module("mainApp", []);
-    var mainCtrl = function ($scope, $http, $interval, $log) {
+    var mainCtrl = function ($scope, $http, $interval, $log, $ancherScroll, $location) {
 
         var onUserComplete = function (responce) {
             $scope.user = responce.data;
@@ -31,6 +31,8 @@
 
         var onRepos = function (responce) {
             $scope.repos = responce.data;
+            $location.hash("userDetails");
+            $ancherScroll();
         };
 
         var onError = function (reson) {
@@ -71,6 +73,7 @@
 
 
     //protection from minifier
-    app.controller('mainController', ["$scope", "$http", "$interval", "$log", mainCtrl]);
+    app.controller('mainController', ["$scope", "$http", "$interval", "$log",
+                                        "$anchorScroll", "$location", mainCtrl]);
 
 }());
