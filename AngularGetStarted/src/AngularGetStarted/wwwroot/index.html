@@ -7,7 +7,7 @@
     <script src="scripts/app.js"></script>
 </head>
 <body ng-controller="mainController">
-    this is a static page {{message}}
+    <h1>{{message}}</h1>
     <div>{{error}}</div>
 
     <!--<p>Selected User is: {{userName}}</p>-->
@@ -19,7 +19,7 @@
         <input type="submit" value="Search" />
     </form>
 
-    <div>
+    <div ng-show="user.name">
         <h2>Name: {{user.name}}</h2>
         <!-- There is no longer a gravarat in github repository so i'm using the regular image -->
         <img ng-src="{{user.avatar_url}}" title="{{user.name}}" />
@@ -41,7 +41,7 @@
         <option value="+language">Language</option>
     </select>
 
-    <table>
+    <table ng-hide="!repos">
         <thead>
             <tr>
                 <th>Id</th>
