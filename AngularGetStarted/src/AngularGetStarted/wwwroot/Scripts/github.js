@@ -11,9 +11,21 @@
                 .then(function (response) { return response.data; });
         };
 
+        var getIssuesCount = function (userName, repoName) {
+            return $http.get("https://api.github.com/repos/" + userName + "/" + repoName)
+            .then(function (response) { return response.data.open_issues_count; });
+        };
+
+        var getContributors = function (userName, repoName) {
+            return $http.get("https://api.github.com/repos/" + userName + "/" + repoName + "/collaborators")
+                        .then(function (response) { return response.data; });
+        };
+
         return {
             getUser: getUser,
-            getRepos: getRepos
+            getRepos: getRepos,
+            getIssuesCount: getIssuesCount,
+            getContributors: getContributors
         };
     };
 

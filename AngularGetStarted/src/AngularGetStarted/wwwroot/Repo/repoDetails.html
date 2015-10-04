@@ -1,0 +1,12 @@
+﻿<div>
+    <h2>{{repoName}}</h2>
+    {{error}}
+    <div>Issues: {{issuesCount}}</div>
+
+    <ul>
+        <!-- contributors now need authentication -->
+        <li ng-repeat="user in contributors">
+            {{user.login}}
+        </li>
+    </ul>
+</div>
