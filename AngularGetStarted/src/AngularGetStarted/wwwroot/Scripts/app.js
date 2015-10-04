@@ -20,17 +20,16 @@
 
 (function () {
     var app = angular.module("mainApp", []);
-    var mainCtrl = function ($scope, $http, $interval, $log, $ancherScroll, $location) {
+    var mainCtrl = function ($scope, github, $interval, $log, $ancherScroll, $location) {
 
-        var onUserComplete = function (responce) {
-            $scope.user = responce.data;
+        var onUserComplete = function (data) {
+            $scope.user = data;
             
-            $http.get($scope.user.repos_url)
-                .then(onRepos, onError);
+            github.getRepos($scope.user).then(onRepos, onError);
         };
 
-        var onRepos = function (responce) {
-            $scope.repos = responce.data;
+        var onRepos = function (data) {
+            $scope.repos = data;
             $location.hash("userDetails");
             $ancherScroll();
         };
@@ -58,7 +57,7 @@
             }
 
             $log.info("Searching for " + userName);
-            $http.get("https://api.github.com/users/" + userName)
+            github.getUser(userName)
             .then(onUserComplete, onError);
 
         };
@@ -73,7 +72,7 @@
 
 
     //protection from minifier
-    app.controller('mainController', ["$scope", "$http", "$interval", "$log",
+    app.controller('mainController', ["$scope", "github", "$interval", "$log",
                                         "$anchorScroll", "$location", mainCtrl]);
 
 }());
