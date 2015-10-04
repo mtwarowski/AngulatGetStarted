@@ -1,0 +1,21 @@
+﻿<!DOCTYPE html>
+<html ng-app="mainApp">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="lib/angular/angular.min.js"></script>
+    <script src="scripts/app.js"></script>
+</head>
+<body ng-controller="mainController">
+    this is a static page {{message}}
+
+    <div>{{error}}</div>
+    <div>
+        <div>Name: {{user.name}}</div>
+        <div>Location: {{user.location}}</div>
+        <div>
+            <img ng-src="{{user.avatar_url}}" title="{{user.name}}" />
+        </div>
+    </div>
+</body>
+</html>
